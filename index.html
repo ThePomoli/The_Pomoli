@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraduationProduction</title>
+    <!-- <meta name="description" content="小標"> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.6.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+
+
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- <div class="loading">
+            <div class="container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div> -->
+        <header></header>
+        <div id="main">
+            <div class="page" id="finalplaypage">
+                <div class="container">
+                    <div class="wall">
+                        <video id="input-video" autoplay playsinline></video>
+                    </div>
+                    <div class="ground">
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="main_mediapipe.js"></script>
+    <script src="main_fish.js"></script>
+
+</body>
+
+</html>
