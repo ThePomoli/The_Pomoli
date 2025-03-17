@@ -5,7 +5,7 @@ let leafImage;
 
 // 載入魚的 GIF
 function preload() {
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i <= 3; i++) {
         fishTextures.push(loadImage(`./img/${i}.gif`));
     }
     leafImage = loadImage('./img/leaf.png'); // 載入葉子圖片
@@ -13,16 +13,11 @@ function preload() {
 
 function setup() {
     const container = document.querySelector('.wall');
-    const canvas = createCanvas(window.innerWidth, window.innerHeight);
+    const canvas = createCanvas(container.offsetWidth, container.offsetHeight);
     container.appendChild(canvas.elt);
 
     // Set the 'willReadFrequently' attribute to true for the canvas
     canvas.elt.setAttribute('willReadFrequently', 'true');
-
-    canvas.style.position = 'absolute';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.zIndex = '2';
 
     // 生成魚的位置，確保不在「手部區域」
     for (let i = 0; i < numFish; i++) {
@@ -35,11 +30,12 @@ function setup() {
         } while (isInHand(pos.x, pos.y));
         fishArray.push(new Fish(pos.x, pos.y));
     }
+    // 當視窗大小變動，重新調整 canvas 大小為 wall 的寬高
     function windowResized() {
-        resizeCanvas(window.innerWidth, window.innerHeight);
+        const container = document.querySelector('.wall');
+        resizeCanvas(container.offsetWidth, container.offsetHeight);
     }
-    windowResized(); // 初次執行
-    
+    window.addEventListener('resize', windowResized);
 }
 
 function draw() {
@@ -60,19 +56,19 @@ function draw() {
     }
 
     clear(); // 清除前一幀繪圖
-  
+
     if (window.handKeypoints) {
         const video = document.getElementById('input-video');
         const videoWidth = video.videoWidth;
         const videoHeight = video.videoHeight;
-    
+
         for (let handIndex = 0; handIndex < window.handKeypoints.length; handIndex++) {
             let keypoints = window.handKeypoints[handIndex];
-    
+
             for (let i = 0; i < keypoints.length; i++) {
                 const kp = keypoints[i];
                 const mapped = mapToCanvas(kp.x, kp.y, videoWidth, videoHeight); // 座標映射
-    
+
                 push();
                 translate(mapped.x, mapped.y);
                 let angle = 0;
@@ -88,7 +84,6 @@ function draw() {
             }
         }
     }
-         
 
     // (2) 更新、碰撞檢查並繪製魚
     for (let fish of fishArray) {
@@ -99,7 +94,6 @@ function draw() {
         fish.display();
     }
 }
-
 
 function isInHand(x, y) {
     if (!window.handKeypoints) return false;
@@ -114,7 +108,6 @@ function isInHand(x, y) {
     }
     return false;
 }
-
 
 // 魚的類別定義
 class Fish {
@@ -167,12 +160,12 @@ class Fish {
     checkHandCollision() {
         const collisionThreshold = 50;
         const lowSpeedThreshold = 2;
-    
+
         if (window.handKeypoints && window.handKeypointsSpeed) {
             const video = document.getElementById('input-video');
             const videoWidth = video.videoWidth;
             const videoHeight = video.videoHeight;
-    
+
             for (let handIndex = 0; handIndex < window.handKeypoints.length; handIndex++) {
                 const hand = window.handKeypoints[handIndex];
                 const handSpeed = window.handKeypointsSpeed[handIndex];
@@ -180,7 +173,7 @@ class Fish {
                     const kp = hand[kpIndex];
                     const speed = handSpeed[kpIndex];
                     const mapped = mapToCanvas(kp.x, kp.y, videoWidth, videoHeight); // 轉換成 Canvas 座標
-    
+
                     let d = dist(this.position.x, this.position.y, mapped.x, mapped.y);
                     if (d < collisionThreshold) {
                         if (speed < lowSpeedThreshold) {
@@ -202,7 +195,7 @@ class Fish {
         this.landed = false;
         this.speed = lerp(this.speed, this.baseSpeed, 0.05);
     }
-    
+
 
     display() {
         push();
@@ -211,7 +204,7 @@ class Fish {
         imageMode(CENTER);
         let offset = createVector(cos(this.angle) * 20, sin(this.angle) * 20);
         let headPosition = this.position.copy().add(offset);
-        image(this.texture, headPosition.x - this.position.x, headPosition.y - this.position.y, window.innerWidth * 0.05, window.innerWidth * 0.05);
+        image(this.texture, headPosition.x - this.position.x, headPosition.y - this.position.y, window.innerWidth * 0.06, window.innerWidth * 0.06);
         pop();
     }
 }
