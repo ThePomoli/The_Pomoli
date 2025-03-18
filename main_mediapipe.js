@@ -1,6 +1,6 @@
-$(document).ready(function () {
-    // $(".loading").fadeOut(1050);
-});
+// $(document).ready(function () {
+//     // $(".loading").fadeOut(1050);
+// });
 
 async function setupHandTracking() {
     const model = handPoseDetection.SupportedModels.MediaPipeHands;

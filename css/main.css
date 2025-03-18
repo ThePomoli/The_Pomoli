@@ -315,7 +315,7 @@ html, body {
   height: 100%;
 }
 #finalplaypage .container .wall {
-  width: 75vw;
+  width: 70.5vw;
   background-image: url("../img/444.png");
   background-size: cover;
   background-position: center;
@@ -325,6 +325,12 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 2.5s ease-in-out;
+  transition: opacity 2.5s ease-in-out;
+}
+#finalplaypage .container .wall .wallbg.show {
+  opacity: 1;
 }
 #finalplaypage .container .wall #wallbg1 {
   z-index: 1;
@@ -346,10 +352,26 @@ html, body {
   top: 0;
   left: 0;
   z-index: 1000;
+  opacity: 0;
+  -webkit-transition: opacity 2.5s ease-in-out;
+  transition: opacity 2.5s ease-in-out;
+}
+#finalplaypage .container .wall canvas.show {
+  opacity: 1;
 }
 #finalplaypage .container .ground {
-  width: 25vw;
+  width: 29.5vw;
   position: relative;
+  background: #000;
+}
+#finalplaypage .container .ground .ground_river {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+#finalplaypage .container .ground .ground_river img {
+  width: 39vw;
 }
 #finalplaypage .container #input-video {
   display: none;

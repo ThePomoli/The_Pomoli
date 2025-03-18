@@ -5,7 +5,7 @@ let leafImage;
 
 // 載入魚的 GIF
 function preload() {
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 30; i++) {
         fishTextures.push(loadImage(`./img/${i}.gif`));
     }
     leafImage = loadImage('./img/leaf.png'); // 載入葉子圖片
@@ -195,7 +195,6 @@ class Fish {
         this.landed = false;
         this.speed = lerp(this.speed, this.baseSpeed, 0.05);
     }
-
 
     display() {
         push();
