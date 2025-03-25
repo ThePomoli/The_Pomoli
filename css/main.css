@@ -243,7 +243,7 @@ a {
 html, body {
   font-size: 100px;
   font-family: "Noto Sans TC", Arial, Helvetica, "微軟正黑體", Microsoft JhengHei, Apple LiGothic, "蘋果儷中黑";
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #wrapper #main {
@@ -255,7 +255,7 @@ html, body {
 .loading {
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
-  background-color: #000;
+  background-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -277,7 +277,7 @@ html, body {
   width: 0.2em;
   height: 0.2em;
   border-radius: 99999px;
-  background-color: #fff;
+  background-color: #fff33e;
   -webkit-animation-name: aniLoading;
           animation-name: aniLoading;
   -webkit-animation-iteration-count: infinite;
@@ -299,85 +299,73 @@ html, body {
           animation-delay: 0.4s;
 }
 
-#finalplaypage {
-  min-height: 100vh;
-  overflow: hidden;
+#storypage .container {
+  width: 70.3vw;
+  margin: auto;
 }
-#finalplaypage .container {
+
+#playpage {
+  display: none;
+}
+#playpage .container {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
+  width: 70.3vw;
   height: 100vh;
+  margin: auto;
 }
-#finalplaypage .container .wall, #finalplaypage .container .ground {
-  height: 100%;
-}
-#finalplaypage .container .wall {
-  width: 70.5vw;
-  background-image: url("../img/444.png");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-#finalplaypage .container .wall .wallbg {
+#playpage .container .wallbg {
   position: absolute;
   top: 0;
   left: 0;
+}
+#playpage .container #wallbg2, #playpage .container #wallbg3, #playpage .container #wallbg4, #playpage .container #wallbg5, #playpage .container canvas, #playpage .container #wh1 {
   opacity: 0;
-  -webkit-transition: opacity 2.5s ease-in-out;
-  transition: opacity 2.5s ease-in-out;
+  -webkit-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
 }
-#finalplaypage .container .wall .wallbg.show {
-  opacity: 1;
-}
-#finalplaypage .container .wall #wallbg1 {
-  z-index: 1;
-}
-#finalplaypage .container .wall #wallbg2 {
+#playpage .container #wallbg2 {
   z-index: 2;
 }
-#finalplaypage .container .wall #wallbg3 {
+#playpage .container #wallbg3 {
   z-index: 3;
 }
-#finalplaypage .container .wall #wallbg4 {
+#playpage .container #wallbg4 {
   z-index: 4;
 }
-#finalplaypage .container .wall #wallbg5 {
+#playpage .container #wallbg5 {
   z-index: 5;
 }
-#finalplaypage .container .wall canvas {
+#playpage .container canvas {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
   opacity: 0;
-  -webkit-transition: opacity 2.5s ease-in-out;
-  transition: opacity 2.5s ease-in-out;
+  -webkit-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
 }
-#finalplaypage .container .wall canvas.show {
-  opacity: 1;
+#playpage .container .wh {
+  position: absolute;
+  bottom: 5.5vw;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 auto;
+  z-index: 10;
+  width: 20vw;
 }
-#finalplaypage .container .ground {
-  width: 29.5vw;
-  position: relative;
-  background: #000;
-}
-#finalplaypage .container .ground .ground_river {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-#finalplaypage .container .ground .ground_river img {
-  width: 39vw;
-}
-#finalplaypage .container #input-video {
+#playpage .container #input-video {
   display: none;
+}
+
+.show {
+  opacity: 1 !important;
 }
 
 #p5_loading {
   display: none;
+}
+
+video {
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

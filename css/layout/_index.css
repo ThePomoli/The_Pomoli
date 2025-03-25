@@ -1,0 +1,70 @@
+#storypage .container {
+  width: 70.3vw;
+  margin: auto;
+}
+
+#playpage {
+  display: none;
+}
+#playpage .container {
+  position: relative;
+  width: 70.3vw;
+  height: 100vh;
+  margin: auto;
+}
+#playpage .container .wallbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#playpage .container #wallbg2, #playpage .container #wallbg3, #playpage .container #wallbg4, #playpage .container #wallbg5, #playpage .container canvas, #playpage .container #wh1 {
+  opacity: 0;
+  -webkit-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
+}
+#playpage .container #wallbg2 {
+  z-index: 2;
+}
+#playpage .container #wallbg3 {
+  z-index: 3;
+}
+#playpage .container #wallbg4 {
+  z-index: 4;
+}
+#playpage .container #wallbg5 {
+  z-index: 5;
+}
+#playpage .container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  -webkit-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
+}
+#playpage .container .wh {
+  position: absolute;
+  bottom: 5.5vw;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 auto;
+  z-index: 10;
+  width: 20vw;
+}
+#playpage .container #input-video {
+  display: none;
+}
+
+.show {
+  opacity: 1 !important;
+}
+
+#p5_loading {
+  display: none;
+}
+
+video {
+  width: 100%;
+}
+/*# sourceMappingURL=_index.css.map */
