@@ -299,26 +299,39 @@ html, body {
           animation-delay: 0.4s;
 }
 
-#storypage .container {
+.page .container {
   width: 70.3vw;
+  height: 100vh;
   margin: auto;
+  position: relative;
+}
+
+#loadingpage {
+  background: yellow;
+}
+#loadingpage .container .loadingimg {
+  width: 10vw;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#storypage {
+  display: none;
 }
 
 #playpage {
   display: none;
-}
-#playpage .container {
-  position: relative;
-  width: 70.3vw;
-  height: 100vh;
-  margin: auto;
 }
 #playpage .container .wallbg {
   position: absolute;
   top: 0;
   left: 0;
 }
-#playpage .container #wallbg2, #playpage .container #wallbg3, #playpage .container #wallbg4, #playpage .container #wallbg5, #playpage .container canvas, #playpage .container #wh1 {
+#playpage .container #wallbg2, #playpage .container #wallbg3, #playpage .container #wallbg4, #playpage .container #wallbg5, #playpage .container canvas, #playpage .container .wh {
   opacity: 0;
   -webkit-transition: opacity 3s ease-in-out;
   transition: opacity 3s ease-in-out;
@@ -346,7 +359,7 @@ html, body {
 }
 #playpage .container .wh {
   position: absolute;
-  bottom: 5.5vw;
+  bottom: 2vw;
   left: 0;
   right: 0;
   margin: 0 auto 0 auto;

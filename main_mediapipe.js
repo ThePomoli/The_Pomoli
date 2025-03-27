@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function checkAllReady() {
-    if (videoReady && assetsLoaded && trackingReady && typeof setup === 'function') {
+    if (videoReady  && trackingReady && typeof setup === 'function') {
         setup();
     }
 }

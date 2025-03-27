@@ -7,7 +7,9 @@
     <title>The Pomoli</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.6.0"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <!-- 建議使用此版本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
     <link rel="stylesheet" href="./css/main.css">
@@ -16,12 +18,19 @@
 
 <body>
     <div id="wrapper">
-        <header></header>
+        <!-- <header></header> -->
         <div id="main">
+            <div class="page" id="loadingpage">
+                <div class="container">
+                    <div class="loadingimg">
+                        <img src="./img/loading.gif" alt="">
+                    </div>
+                </div>
+            </div>
             <div class="page" id="storypage">
                 <div class="container">
-                    <video src="./img/story.mp4" autoplay muted></video>
-                    <audio src="./audio/story.mp3" preload="auto"></audio>
+                    <video id="storypage_vido" src="./img/story.mp4" muted></video>
+                    <audio id="storypage_audio" src="./audio/story.mp3" preload="auto"></audio>
                 </div>
             </div>
             <div class="page" id="playpage">
@@ -32,7 +41,7 @@
                     <div class="wallbg" id="wallbg3"><img src="./img/wallbg3.png" alt=""></div>
                     <div class="wallbg" id="wallbg4"><img src="./img/wallbg4.png" alt=""></div>
                     <div class="wallbg" id="wallbg5"><img src="./img/wallbg5.png" alt=""></div>
-                    <div class="wh" id="wh1"><img src="./img/wh1.png" alt=""></div>
+                    <div class="wh"><img src="./img/wh9.png" alt=""></div>
                     <video id="input-video" autoplay playsinline></video>
                     <audio id="playpagebgmusic" src="./audio/playpagebgmusic.MP3" preload="auto"></audio>
                 </div>
